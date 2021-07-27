@@ -1,0 +1,20 @@
+# Please read readme.md file for filling out these credentials.
+#aws:
+#  client-names:
+#  - default
+#  - non-default
+#  - test
+#azure:
+#  bearer-expire-on:
+# bearer-token:
+#  client-id:
+#  client-secret:
+#  subscription-id:
+#  tenant-id:
+#digital-ocean:
+#  token:
+#gpc:
+#  token:
+#LUUP_API_KEY:
+#LUUP_API_SERVER:
+
