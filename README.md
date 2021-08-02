@@ -12,5 +12,10 @@ You can use flatfiles as well.
 Please find additional information about setup and usage in the 
 [docs](docs) - folder.
 
+- [Setup.md](docs/Setup.md)
+- [Usage.md](docs/Usage.md)
+
+
+
 
 

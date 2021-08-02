@@ -13,9 +13,12 @@ no API-Key is generated
 
 - use either a small VPS or even a RasPi
 - requirements: 1 CPU, 512 MB RAM, 20 GB HDD
-- be sure the server can reach the LUUP_API (see Usage.md)
+- be sure the server can reach the LUUP_API
+
 - the following softwarepackages are required (install-commands
-are valid for debian/ubunto-derivates, YMMV):
+are valid for debian/ubunto-derivates, YMMV); the package itself will be 
+installed in a python3 - virtualenv:
+
 
 ~~~
 
@@ -52,6 +55,15 @@ lcc@lcc-prod:~/cloudconnector
 $ ./lcc ping
 [+] Luup PING: OK | 200 | ping_ok 
     API: https://api.luup-console.de/api/v1/ping
+
+~~~
+
+- setup a cronjob (twice a day is sufficient) to send over new IPs
+
+~~~
+
+
+42 8,20 * * * cd ~/cloudconnector && ./lcc run
 
 ~~~
 

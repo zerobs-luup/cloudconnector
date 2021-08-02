@@ -21,6 +21,20 @@ from DO import DO
 # ~ from LUUP import IP_API
 
 
+def usage():
+  print("""
+
+USAGE:
+
+  %s -h     -> this help
+  
+  %s ping   -> test api_connection
+  
+  %s run    -> collect IPs and update LUUP_API
+  
+  
+  """ % ("lcc", "lcc", "lcc"))
+
 class RUN:
     config_file = None
     env = None
@@ -139,7 +153,7 @@ class RUN:
             if res.status_code == 200:
               print("[+] Luup PING: %s" % "OK | %s | %s \n    API: %s" % ( res.status_code, res.text, LUUP_API_ENDPOINT) )
             else:
-              print("[-] Luup server response: %s" % "ERROR | %s | %s \n    API: s" % (res.status_code, res.text, LUUP_API_ENDPOINT) )
+              print("[-] Luup server response: ERROR | %s | %s \n    API: %s" % (res.status_code, res.text, LUUP_API_ENDPOINT) )
       
         else:
             print("[-] ERROR Luup not configured yet, see config.yaml")
@@ -150,11 +164,14 @@ run = RUN("config.yaml")
 try:
   action = sys.argv[1]
 except:
-  action = "run"
+  action = ""
 
 if action == "run":
   run.start()
 elif action == "ping":
   run.api_test()
+else:
+  usage()
+  sys.exit()
 
 # run.send_to_luup()
